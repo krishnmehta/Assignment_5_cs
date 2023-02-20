@@ -41,21 +41,23 @@ public class KioskSystem
                 switch (inp)
                 {
                     case "1":
-                        await BgOperation.WriteToFileAsync("Hello World");
+                        Task t1 =  BgOperation.WriteToFileAsync("Hello World");
                         Console.WriteLine("Task completed");
                         break;
                     case "2":
-                        await BgOperation.WriteToFileAsync(DateTime.Now.ToString());
+                        Task t2 = BgOperation.WriteToFileAsync(DateTime.Now.ToString());
                         Console.WriteLine("Task completed");
                         break;
                     case "3":
-                        await BgOperation.WriteToFileAsync(Environment.OSVersion.VersionString);
+                        Task t3 = BgOperation.WriteToFileAsync(Environment.OSVersion.VersionString);
                         Console.WriteLine("Task completed");
                         break;
                     default:
                         Console.WriteLine("Invalid input.");
                         break;
+                   await Task.WhenAll(t1, t2, t3);
                 }
+                
             }
             
         }
