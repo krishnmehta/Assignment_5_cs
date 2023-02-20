@@ -24,7 +24,7 @@ public class KioskSystem
 {
     public async Task RunAsync()
     {
-        BackgroundOperation BgOperation = new BackgroundOperation(); //Making object 
+        BackgroundOperation BackOp = new BackgroundOperation(); //Making object 
         
         while (true)
         {
@@ -41,15 +41,15 @@ public class KioskSystem
                 switch (inp)
                 {
                     case "1":
-                        Task t1 =  BgOperation.WriteToFileAsync("Hello World");
+                        Task t1 =  BackOp.WriteToFileAsync("Hello World"); //Creating task
                         Console.WriteLine("Task completed");
                         break;
                     case "2":
-                        Task t2 = BgOperation.WriteToFileAsync(DateTime.Now.ToString());
+                        Task t2 = BackOp.WriteToFileAsync(DateTime.Now.ToString());
                         Console.WriteLine("Task completed");
                         break;
                     case "3":
-                        Task t3 = BgOperation.WriteToFileAsync(Environment.OSVersion.VersionString);
+                        Task t3 = BackOp.WriteToFileAsync(Environment.OSVersion.VersionString);
                         Console.WriteLine("Task completed");
                         break;
                     default:
